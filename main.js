@@ -8,7 +8,9 @@ form.addEventListener("submit", (e) => {
   const deliveryFee = document.querySelector("#deliveryFee").value;
   const invoicePriceWithoutDeliveryFee =
     Number(invoiceSum) - Number(deliveryFee);
-  const quantityOfProductsInRow = 2;
+  const quantityOfProductsInRow = document.querySelector(
+    "#quantityOfProductsInRow"
+  ).value;
   const priceOfUnit = document.querySelector("#priceOfUnit").value;
 
   const quantityPrice = quantityOfProductsInRow * priceOfUnit;
@@ -20,7 +22,7 @@ form.addEventListener("submit", (e) => {
   const newUnitPrice = Number(priceOfUnit) + Number(additionMoneyToUnit);
 
   const result = document.querySelector("#result");
-  result.innerHTML = `The new price of the unit is: <span id="price" class="price">${newUnitPrice.toFixed(
+  result.innerHTML = `Click on the result to copy it: <span id="price" class="price">${newUnitPrice.toFixed(
     4
   )}</span><span class="copied">Copied!</span>`;
 
@@ -37,4 +39,5 @@ form.addEventListener("submit", (e) => {
   });
 
   document.querySelector("#priceOfUnit").value = "";
+  document.querySelector("#quantityOfProductsInRow").value = "";
 });
